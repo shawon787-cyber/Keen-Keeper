@@ -11,7 +11,7 @@ const Navbar = () => {
 
     const linkClass = ({ isActive }) =>
         isActive
-            ? "bg-green-950 text-white px-3 py-2 rounded flex items-center gap-2"
+            ? "bg-green-900 text-white px-3 py-2 rounded flex items-center gap-2"
             : "flex items-center gap-2 text-gray-600 px-3 py-2";
 
     return (
