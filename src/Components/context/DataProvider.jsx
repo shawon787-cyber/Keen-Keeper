@@ -3,20 +3,30 @@ import { DataContext } from "../context/DataContext";
 
 const DataProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [friendsData, setFriendsData] = useState([]);
+
+  // 🔥 NEW: timeline history state
+  const [history, setHistory] = useState([]);
 
   useEffect(() => {
     fetch("/data.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUsers(data);
-        setLoading(false);
+        setFriendsData(data);
       });
   }, []);
 
   return (
-    <DataContext.Provider value={{ users, loading }}>
+    <DataContext.Provider
+      value={{
+        users,
+        friendsData,
+
+        history,
+        setHistory,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );

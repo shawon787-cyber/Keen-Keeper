@@ -1,12 +1,26 @@
-import React, { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import FriendsData from "./FriendsData";
 
 const Friend = () => {
-  const { users, loading } = useContext(DataContext);
+  const { users } = useContext(DataContext);
+  const [loading, setLoading] = useState(true);
+ useEffect(() => {
+    setLoading(true);
 
-  if (loading) return <p>Loading...</p>;
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
 
+    return () => clearTimeout(timer);
+  }, [users]);
+if (loading) {
+    return (
+      <div className="flex justify-center items-center py-10">
+        <span className="loading loading-spinner loading-lg text-purple-500"></span>
+      </div>
+    );
+  }
   return (
     <div className="bg-gray-50 py-8">
 

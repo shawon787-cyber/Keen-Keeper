@@ -1,7 +1,12 @@
+
+import { Link } from "react-router";
+
+
 const FriendsData = ({ user }) => {
+  
   return (
     <div>
-      <div className="shadow p-8 rounded-2xl mb-2 bg-white text-center flex flex-col justify-center items-center space-y-2">
+      <Link to={`friend-details/${user.id}`} className="shadow p-8 rounded-2xl mb-2 bg-white text-center flex flex-col justify-center items-center space-y-2">
         <img src={user.picture} alt="" className="w-16 h-16 rounded-full" />
 
         <div>
@@ -32,7 +37,7 @@ const FriendsData = ({ user }) => {
   {user.status}
 </p>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
