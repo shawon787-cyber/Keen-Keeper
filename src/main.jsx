@@ -9,6 +9,8 @@ import DataProvider from './Components/context/DataProvider'
 import FriendsDetailsData from './Components/Friend/FriendsDetailsData'
 import Timeline from './Components/Timeline/Timeline'
 import { ToastContainer } from 'react-toastify'
+import Stats from './Components/Stats/Stats'
+import Error from './Components/Error/Error'
 
 const router = createBrowserRouter([
   {
@@ -29,9 +31,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/stats",
-        element: <h2>Stats</h2>
+        element: <Stats></Stats>
       }
-    ]
+    ],
+    errorElement: <Error></Error>
   },
   
 ])
