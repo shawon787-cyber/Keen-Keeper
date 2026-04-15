@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
 import { DataContext } from "../context/DataContext";
+import { GoDotFill } from "react-icons/go";
 
 const Stats = () => {
   const { history } = useContext(DataContext);
@@ -26,10 +27,13 @@ const Stats = () => {
  
 
   return (
-    <div className="flex flex-col items-center justify-center my-10">
-      <h1 className="text-2xl font-bold mb-6">Stats Overview</h1>
+    <div className=" px-2 py-10 bg-gray-50">
+      <h1 className="text-4xl font-bold mb-8 text-center">Friendship Analytics</h1>
+      <div className="bg-white container mx-auto p-8 rounded-3xl shadow mb-6">
+        <h1 className="text-green-800 text-xl font-medium">By Interaction Type</h1>
 
-      <PieChart width={400} height={400}>
+      <div className="flex flex-col items-center justify-center">
+        <PieChart width={400} height={400}>
         <Pie
           data={data}
           cx="50%"
@@ -45,6 +49,13 @@ const Stats = () => {
 
         <Tooltip />
       </PieChart>
+      <div className="flex items-center justify-center gap-2">
+        <p className="flex items-center gap-1"><GoDotFill className="text-sky-600"></GoDotFill> Text</p>
+        <p className="flex items-center gap-1"><GoDotFill className="text-green-600"></GoDotFill> Call</p>
+        <p className="flex items-center gap-1"><GoDotFill className="text-purple-600"></GoDotFill> Video</p>
+      </div>
+      </div>
+      </div>
     </div>
   );
 };
